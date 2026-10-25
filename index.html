@@ -207,7 +207,7 @@ table.tab tr:hover td{background:#F7FAFC}
       <button class="nav-item" data-secao="usuarios"><span class="ic">👥</span> Utilizadores</button>
     </nav>
     <div class="sb-rodape">
-      <div>EMS Comercial v1.5.6</div>
+      <div>EMS Comercial v1.5.7</div>
       <button class="b b-s btn-sair" id="btn-sair" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#C8D3DE">🚪 Sair</button>
     </div>
   </aside>
@@ -293,7 +293,7 @@ function seed(){
 function ensureShape(d){var s=seed();if(!d||typeof d!=='object')d={};['config','produtos','fornecedores','clientes','compras','vendas','cotacoes','servicos','despesas','caixa','fechosCaixa','encomendas','anuladas','usuarios','audit','movimentos'].forEach(function(k){if(!Array.isArray(d[k])&&k!=='config')d[k]=[];if(k==='config'&&typeof d[k]!=='object')d[k]=s.config;});if(!d.config||typeof d.config!=='object')d.config=s.config;['loja','nuit','contactos','endereco','proxFac','proxCot','proxServ','ivaPct','aplicarIva','senhaHash'].forEach(function(k){if(d.config[k]===undefined)d.config[k]=s.config[k];});if(!Array.isArray(d.usuarios)||!d.usuarios.length)d.usuarios=[{id:'u1',nome:'Administrador',perfil:'admin',pinHash:d.config.senhaHash||null,ativo:true}];(d.clientes||[]).forEach(function(c2){if(c2.limiteCredito===undefined)c2.limiteCredito=0;if(c2.endereco===undefined)c2.endereco='';});return d;}
 var db=null;
 function carregar(){if(db)return db;try{db=ensureShape(JSON.parse(localStorage.getItem(LS)));}catch(e){db=seed();}return db;}
-function guardar(){try{localStorage.setItem(LS,JSON.stringify(db));try{localStorage.setItem('ems_bk_'+hojeISO(),JSON.stringify(db));var chs=[];for(var i2=0;i2<localStorage.length;i2++){var k2=localStorage.key(i2);if(k2&&k2.indexOf('ems_bk_')===0)chs.push(k2);}chs.sort();while(chs.length>7){localStorage.removeItem(chs.shift());}}catch(e2){}}catch(e){toast('Não foi possível guardar (armazenamento cheio?).','erro');}}
+function guardar(){srvPush();try{localStorage.setItem(LS,JSON.stringify(db));try{localStorage.setItem('ems_bk_'+hojeISO(),JSON.stringify(db));var chs=[];for(var i2=0;i2<localStorage.length;i2++){var k2=localStorage.key(i2);if(k2&&k2.indexOf('ems_bk_')===0)chs.push(k2);}chs.sort();while(chs.length>7){localStorage.removeItem(chs.shift());}}catch(e2){}}catch(e){toast('Não foi possível guardar (armazenamento cheio?).','erro');}}
 function p(id,arr){return (db[arr]||[]).find(function(x){return x.id===id;});}
 function prodPorId(id){return p(id,'produtos');}
 
@@ -301,7 +301,8 @@ function prodPorId(id){return p(id,'produtos');}
 var EM_DEFAULT='ems2026';
 function desbloquear(){sessionStorage.setItem('ems_sess','1');$('login-ov').style.display='none';$('app').hidden=false;carregar();var uA=usuarioAtual();var cu=$('chip-user');if(cu)cu.textContent=uA?(uA.nome+' · '+uA.perfil):'';document.querySelectorAll('.nav-item').forEach(function(b){b.style.display=podeAceder(b.dataset.secao)?'':'none';});navigate('dashboard');}
 function iniciarSessao(){if(sessionStorage.getItem('ems_sess')==='1')desbloquear();}
-$('form-login').addEventListener('submit',function(ev){ev.preventDefault();carregar();var us=db.usuarios||[];var sel=$('login-usuario');var u=us.find(function(x){return x.id===sel.value;})||us[0];if(!u){$('login-aviso').textContent='Nenhum utilizador configurado.';$('login-aviso').style.display='block';return;}if(u.ativo===false){$('login-aviso').textContent='Este utilizador está inativo.';$('login-aviso').style.display='block';return;}var tentativa=($('login-senha').value||'').trim();if(!tentativa){$('login-aviso').textContent='Escreva o PIN / palavra-passe.';$('login-aviso').style.display='block';return;}sha(tentativa).then(function(h){var refs=[];if(u.pinHash)refs.push(u.pinHash);if(db.config.senhaHash)refs.push(db.config.senhaHash);return Promise.all([sha(EM_DEFAULT),sha(EM_DEFAULT.toUpperCase())]).then(function(a){refs=refs.concat(a);if(refs.indexOf(h)>=0){$('login-aviso').style.display='none';$('login-senha').value='';sessionStorage.setItem('ems_user',JSON.stringify(u));auditar('login','Sessão iniciada — '+u.nome);guardar();desbloquear();}else{$('login-aviso').textContent='PIN / palavra-passe incorreto.';$('login-aviso').style.display='block';}});});});
+$('form-login').addEventListener('submit',function(ev){ev.preventDefault();carregar();var us=db.usuarios||[];var sel=$('login-usuario');var u=us.find(function(x){return x.id===sel.value;})||us[0];if(!u){$('login-aviso').textContent='Nenhum utilizador configurado.';$('login-aviso').style.display='block';return;}if(u.ativo===false){$('login-aviso').textContent='Este utilizador está inativo.';$('login-aviso').style.display='block';return;}var tentativa=($('login-senha').value||'').trim();if(!tentativa){$('login-aviso').textContent='Escreva o PIN / palavra-passe.';$('login-aviso').style.display='block';return;}
+if(SRV.on){srvLogin(tentativa).then(function(j){db=ensureShape(j.db);try{localStorage.setItem(LS,JSON.stringify(db));}catch(e){}sessionStorage.setItem('ems_user',JSON.stringify(j.user||{nome:'Administrador',perfil:'admin'}));$('login-aviso').style.display='none';$('login-senha').value='';auditar('login','Sessão iniciada (servidor central)');desbloquear();}).catch(function(er){$('login-aviso').textContent=er.message||'PIN / palavra-passe incorreto.';$('login-aviso').style.display='block';});return;}sha(tentativa).then(function(h){var refs=[];if(u.pinHash)refs.push(u.pinHash);if(db.config.senhaHash)refs.push(db.config.senhaHash);return Promise.all([sha(EM_DEFAULT),sha(EM_DEFAULT.toUpperCase())]).then(function(a){refs=refs.concat(a);if(refs.indexOf(h)>=0){$('login-aviso').style.display='none';$('login-senha').value='';sessionStorage.setItem('ems_user',JSON.stringify(u));auditar('login','Sessão iniciada — '+u.nome);guardar();desbloquear();}else{$('login-aviso').textContent='PIN / palavra-passe incorreto.';$('login-aviso').style.display='block';}});});});
 $('btn-sair').addEventListener('click',function(){sessionStorage.removeItem('ems_sess');location.reload();});
 $('btn-menu').addEventListener('click',function(){$('sb').classList.toggle('aberta');});
 document.addEventListener('click',function(ev){var b=ev.target.closest('.nav-item');if(b){$('sb').classList.remove('aberta');navigate(b.dataset.secao);}});
@@ -951,6 +952,12 @@ document.addEventListener('change',function(ev){var t=ev.target;
 
 /* ---------- Arranque ---------- */
 carregar();
+/* ===== ETAPA 7 - SERVIDOR CENTRAL: mesma senha e mesmos dados em todos os aparelhos ===== */
+var SRV={on:false,token:sessionStorage.getItem('ems_srv_token')||null};
+function srvHealth(){try{return fetch('/api/health').then(function(r){return r.ok?r.json():null;}).then(function(j){SRV.on=!!(j&&j.app==='ems');var lh2=$('login-hint');if(SRV.on&&lh2){lh2.style.display='block';lh2.textContent='🔗 Servidor central ativo — senha e dados são os mesmos em todos os aparelhos.';}return SRV.on;}).catch(function(){return false;});}catch(e){return Promise.resolve(false);}}
+function srvLogin(senha){return fetch('/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({senha:senha})}).then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j};});}).then(function(x){if(!x.ok)throw new Error(x.j&&x.j.erro||'Falha de login');SRV.token=x.j.token;sessionStorage.setItem('ems_srv_token',SRV.token);return x.j;});}
+function srvPush(){if(!SRV.on||!SRV.token||!db)return;try{fetch('/api/db',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+SRV.token},body:JSON.stringify({data:db})}).then(function(r){if(!r.ok)throw 0;}).catch(function(){toast('Servidor indisponível — dados guardados só neste aparelho.','aviso');});}catch(e){}}
+srvHealth();
 if(!db.config.senhaHash){var lh=$('login-hint');if(lh)lh.style.display='block';}
 (function(){var us=(db.usuarios||[]);var sel=$('login-usuario');if(sel)sel.innerHTML=us.map(function(u){return '<option value="'+u.id+'">'+esc(u.nome)+' ('+esc(u.perfil)+')</option>';}).join('');})();
 $('chip-data').textContent=dataBR(hojeISO());

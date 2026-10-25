@@ -1,0 +1,9 @@
+{
+  "name": "ems-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "pg": "^8.11.3" },
+  "engines": { "node": ">=18" }
+}
