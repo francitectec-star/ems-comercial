@@ -1,0 +1,111 @@
+{
+  "revision": 2,
+  "data": {
+    "v": 1,
+    "config": {
+      "loja": "ELECTRO MOZ SOLAR (SERVIDOR)",
+      "nuit": "122561291",
+      "proxFac": 1,
+      "proxCot": 1,
+      "proxServ": 1,
+      "ivaPct": 16,
+      "aplicarIva": false,
+      "senhaHash": null,
+      "contactos": "852652545 / 841069443",
+      "endereco": ""
+    },
+    "produtos": [
+      {
+        "id": "pm1",
+        "codigo": "MARK1",
+        "nome": "SRV-MARKER",
+        "unidade": "un",
+        "precoCusto": 5,
+        "precoVenda": 9,
+        "stock": 99,
+        "stockMin": 0,
+        "ivaPct": 16,
+        "ativo": true
+      },
+      {
+        "id": "emvnmq0343ij311",
+        "nome": "VIA SERVIDOR",
+        "codigo": "SRV1",
+        "categoria": "",
+        "unidade": "un",
+        "precoCusto": 10,
+        "precoVenda": 10,
+        "stock": 1,
+        "stockMin": 0,
+        "ivaPct": 16,
+        "ativo": true
+      }
+    ],
+    "fornecedores": [],
+    "clientes": [],
+    "compras": [
+      {
+        "id": "emvnmq035esf7mw",
+        "data": "2026-10-25",
+        "fornecedor": "",
+        "itens": [
+          {
+            "nome": "VIA SERVIDOR",
+            "ref": "SRV1",
+            "qtd": 1,
+            "preco": 10,
+            "nota": "",
+            "produtoId": "emvnmq0343ij311"
+          }
+        ],
+        "total": 10,
+        "pagoForn": 0,
+        "formaForn": "Numerário"
+      }
+    ],
+    "vendas": [],
+    "cotacoes": [],
+    "servicos": [],
+    "despesas": [],
+    "caixa": [],
+    "fechosCaixa": [],
+    "encomendas": [],
+    "anuladas": [],
+    "usuarios": [
+      {
+        "id": "u1",
+        "nome": "Administrador",
+        "perfil": "admin",
+        "pinHash": null,
+        "ativo": true
+      }
+    ],
+    "audit": [
+      {
+        "id": "emvnmpyvx49cmei",
+        "data": "2026-10-25T09:32:27.741Z",
+        "u": "Administrador",
+        "acao": "login",
+        "detalhes": "Sessão iniciada (servidor central)"
+      },
+      {
+        "id": "emvnmq035m2pzqr",
+        "data": "2026-10-25T09:32:29.297Z",
+        "u": "Administrador",
+        "acao": "compra",
+        "detalhes": "fornecedor · 10,00 MT · pago 0,00 MT"
+      }
+    ],
+    "movimentos": [
+      {
+        "id": "emvnmq034kzk650",
+        "data": "2026-10-25",
+        "produtoId": "emvnmq0343ij311",
+        "qtd": 1,
+        "tipo": "entrada",
+        "motivo": "Compra"
+      }
+    ],
+    "catServicos": []
+  }
+}
