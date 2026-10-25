@@ -50,7 +50,7 @@ const server=http.createServer(async(req,res)=>{
         return send(res,200,{ok:true,revision:DB_CACHE.revision})}
       return send(res,405,{erro:'Método não permitido'})
     }
-    if(u.pathname==='/'||u.pathname==='/comercial.html'){const f=path.join(ROOT,'comercial.html');if(fs.existsSync(f))return send(res,200,fs.readFileSync(f,'utf8'),'text/html; charset=utf-8');return send(res,404,'comercial.html não encontrado','text/plain')}
+    if(u.pathname==='/'||u.pathname==='/comercial.html'||u.pathname==='/index.html'){const cand=[path.join(__dirname,'index.html'),path.join(__dirname,'comercial.html'),path.join(ROOT,'comercial.html'),path.join(ROOT,'index.html')];const f=cand.find(function(x){return fs.existsSync(x);});if(f)return send(res,200,fs.readFileSync(f,'utf8'),'text/html; charset=utf-8');return send(res,404,'comercial.html não encontrado','text/plain')}
     if(u.pathname==='/health')return send(res,200,{status:'ok'});
     return send(res,404,{erro:'Não encontrado'})
   }catch(e){console.error('EMS server erro:',e.message);return send(res,500,{erro:'Erro interno'})}
