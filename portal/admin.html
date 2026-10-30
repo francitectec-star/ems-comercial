@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel administrativo — Electro-Moz-Solar</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#123B66">
+<style>
+:root{--azul:#123B66;--solar:#F2B705;--verde:#16845B;--cinza:#F4F7FB;--tinta:#12202F;--linha:#DDE5EE;--verm:#B3261E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--cinza);color:var(--tinta);line-height:1.5}
+h1,h2{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:.85em}
+.wrap{max-width:1080px;margin:0 auto;padding:20px}
+.topo{background:var(--azul);color:#fff;padding:14px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.topo h1{font-size:20px;margin-right:auto}
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:8px;padding:9px 15px;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+.btn-solar{background:var(--solar);color:#1a1500}
+.btn-azul{background:var(--azul);color:#fff}
+.btn-linha{background:#fff;border:1.5px solid var(--linha);color:var(--azul)}
+.btn-verm{background:#FDECEA;color:var(--verm)}
+.card{background:#fff;border:1px solid var(--linha);border-radius:10px;padding:18px;margin:14px 0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+.tab{border:1.5px solid var(--linha);background:#fff;border-radius:99px;padding:8px 16px;font-weight:700;font-size:14px;color:#5B6B7C;cursor:pointer}
+.tab.on{background:var(--azul);border-color:var(--azul);color:#fff}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff}
+th,td{border:1px solid var(--linha);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#EEF3F9;font-size:12.5px}
+input,select,textarea{border:1.5px solid var(--linha);border-radius:7px;padding:8px 10px;font:inherit;background:#fff;width:100%}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.campo{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.campo.full{grid-column:1/-1}
+.campo label{font-weight:700}
+.badge{font-size:11px;font-weight:700;padding:2.5px 8px;border-radius:99px;background:#EDF1F6;color:#5B6B7C;display:inline-block}
+.badge-verde{background:#E4F4ED;color:var(--verde)}
+.badge-verm{background:#FDECEA;color:var(--verm)}
+.lock{max-width:420px;margin:12vh auto;text-align:center}
+.pin-in{display:flex;gap:8px;justify-content:center;margin:14px 0}
+.pin-in input{max-width:220px;text-align:center;font-size:20px;letter-spacing:.3em}
+.foto-pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;max-height:300px;overflow:auto;border:1px solid var(--linha);border-radius:8px;padding:8px;background:#fff}
+.foto-pick img{width:100%;height:70px;object-fit:cover;border-radius:6px;border:2.5px solid transparent;cursor:pointer}
+.foto-pick img.on{border-color:var(--solar)}
+.aviso{font-size:12.5px;color:#5B6B7C;margin-top:8px}
+.ok{color:var(--verde);font-weight:700}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="topo">
+  <h1>⚙️ Painel administrativo</h1>
+  <span class="mono" id="who" style="color:#BCD2E8"></span>
+  <button class="btn btn-linha" id="btn-sair" hidden>Sair</button>
+</header>
+<div class="wrap">
+
+<div class="lock card" id="lock">
+  <h2 style="font-size:22px">Acesso restrito</h2>
+  <p style="color:#5B6B7C;margin-top:6px" id="lock-msg">Introduza o PIN do painel. No primeiro acesso, defina o PIN — fica guardado apenas neste navegador.</p>
+  <div class="pin-in"><input id="pin" type="password" inputmode="numeric" maxlength="8" placeholder="••••" autocomplete="current-password"></div>
+  <button class="btn btn-azul" id="btn-pin">Entrar</button>
+  <p class="aviso">Proteção local do painel de gestão do catálogo. A segurança de servidor (acesso por utilizadores e registo de operações) entra com a integração ao sistema comercial.</p>
+</div>
+
+<div id="painel" hidden>
+  <div class="tabs">
+    <button class="tab on" data-t="prod">Produtos</button>
+    <button class="tab" data-t="serv">Serviços</button>
+    <button class="tab" data-t="ped">Pedidos de cotação</button>
+    <button class="tab" data-t="conf">Configuração</button>
+    <button class="tab" data-t="exp">Exportar / Importar</button>
+  </div>
+  <div id="v-prod"></div>
+  <div id="v-serv" hidden></div>
+  <div id="v-ped" hidden></div>
+  <div id="v-conf" hidden></div>
+  <div id="v-exp" hidden></div>
+</div>
+</div>
+
+<script>
+/* ============================================================
+   Painel do Portal — Electro-Moz-Solar
+   Edita uma cópia do catálogo guardada neste navegador e
+   exporta o catalogo.json para publicar no site.
+   (Os pedidos de cotação do site são encaminhados pelo cliente
+   para o WhatsApp; aqui podem registar-se manualmente até a
+   integração com a base de dados estar ativa.)
+   ============================================================ */
+const LS='ems_portal_admin_v1';
+let CAT=null, PIN='', editId=null, editServId=null;
+
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const $=s=>document.querySelector(s);
+async function sha(txt){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(txt));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');}
+
+async function iniciar(){
+  const st=JSON.parse(localStorage.getItem(LS)||'{}');
+  PIN=st.pinHash||'';
+  $('#who').textContent='';
+  try{const r=await fetch('catalogo.json',{cache:'no-store'});if(r.ok){const j=await r.json();if(j.produtos){CAT=j;}}}catch(e){}
+  if(!CAT)CAT=st.cat||null;
+  if(!CAT){alert('catalogo.json não encontrado ao lado deste painel. Use «Importar» para carregar o ficheiro.');CAT={atualizado:new Date().toISOString().slice(0,10),empresa:{nome:'Electro-Moz-Solar E.I.',nuit:'',contactos:[],whatsapp:'841069443',localizacao:'Matola / Maputo'},produtos:[],categorias:[],servicos:[],fotosDisponiveis:[]};}
+  guardarLocal();
+  if(PIN){$('#lock-msg').textContent='Introduza o PIN do painel.';}
+}
+function guardarLocal(){
+  const st=JSON.parse(localStorage.getItem(LS)||'{}');
+  st.cat=CAT; localStorage.setItem(LS,JSON.stringify(st));
+}
+function marcar(){const t=new Date().toISOString().slice(0,10);CAT.atualizado=t;}
+
+/* ---------- PIN ---------- */
+$('#btn-pin').addEventListener('click',async()=>{
+  const v=$('#pin').value.trim(); if(!v)return;
+  const h=await sha(v);
+  if(!PIN){PIN=h;const st=JSON.parse(localStorage.getItem(LS)||'{}');st.pinHash=h;localStorage.setItem(LS,JSON.stringify(st));abrir();}
+  else if(h===PIN)abrir();
+  else alert('PIN incorreto.');
+});
+$('#pin').addEventListener('keydown',e=>{if(e.key==='Enter')$('#btn-pin').click();});
+$('#btn-sair').addEventListener('click',()=>{$('#painel').hidden=true;$('#lock').hidden=false;$('#pin').value='';});
+function abrir(){$('#lock').hidden=true;$('#painel').hidden=false;$('#btn-sair').hidden=false;$('#who').textContent='sessão local';renderTabs();verTab('prod');}
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));verTab(t.dataset.t);}));
+function verTab(t){
+  ['prod','serv','ped','conf','exp'].forEach(x=>$('#v-'+x).hidden=x!==t);
+  if(t==='prod')verProd(); if(t==='serv')verServ(); if(t==='ped')verPed(); if(t==='conf')verConf(); if(t==='exp')verExp();
+}
+
+/* ---------- produtos ---------- */
+function verProd(){
+  const l=(CAT.produtos||[]).map(p=>{
+    const est=p.precoEstado==='publico'?'Preço público':(p.precoEstado==='indisponivel'?'Indisponível':(p.precoEstado==='descontinuado'?'Descontinuado':'Sob consulta'));
+    return '<tr><td class="mono">'+esc(p.codigo)+'</td><td>'+esc(p.nome)+'</td><td>'+esc(p.categoria)+'</td><td><span class="badge">'+est+'</span></td><td>'+(p.destaque?'<span class="badge badge-verde">destaque</span> ':'')+(p.publicar===false?'<span class="badge badge-verm">oculto</span>':'<span class="badge badge-verde">público</span>')+'</td>'
+    +'<td><button class="btn btn-linha" data-ed="'+esc(p.id)+'">Editar</button> '+(p.publicar===false?'<button class="btn btn-linha" data-pub="'+esc(p.id)+'">Publicar</button>':'<button class="btn btn-linha" data-unpub="'+esc(p.id)+'">Ocultar</button>')+'</td></tr>';
+  }).join('');
+  $('#v-prod').innerHTML='<div class="card"><h2 style="font-size:20px">Produtos ('+(CAT.produtos||[]).length+')</h2>'
+   +'<p class="aviso">Edite, defina o estado do preço e escolha a fotografia. As alterações ficam neste navegador — depois use «Exportar» para gerar o catalogo.json e publicar.</p>'
+   +'<div style="overflow:auto;margin-top:10px"><table><tr><th>Código</th><th>Nome</th><th>Categoria</th><th>Preço</th><th>Estado</th><th></th></tr>'+l+'</table></div></div>'
+   +'<div class="card" id="editor" hidden></div>';
+  $('#v-prod').querySelectorAll('[data-ed]').forEach(b=>b.addEventListener('click',()=>editarProd(b.dataset.ed)));
+  $('#v-prod').querySelectorAll('[data-pub]').forEach(b=>b.addEventListener('click',()=>{const p=CAT.produtos.find(x=>x.id===b.dataset.pub);p.publicar=true;guardarLocal();marcar();verProd();}));
+  $('#v-prod').querySelectorAll('[data-unpub]').forEach(b=>b.addEventListener('click',()=>{const p=CAT.produtos.find(x=>x.id===b.dataset.unpub);p.publicar=false;guardarLocal();marcar();verProd();}));
+}
+function editarProd(id){
+  editId=id;
+  const p=CAT.produtos.find(x=>x.id===id); if(!p)return;
+  const fotos=[''].concat(CAT.fotosDisponiveis||[]);
+  const especs=(p.especificacoes||[]).map((e,i)=>'<div style="display:flex;gap:6px;margin-bottom:5px"><input class="sp-k" value="'+esc(e.k)+'" placeholder="Característica"><input class="sp-v" value="'+esc(e.v)+'" placeholder="Valor"><button class="btn btn-verm" data-rmspec="'+i+'">✕</button></div>').join('');
+  $('#editor').hidden=false;
+  $('#editor').innerHTML='<h2 style="font-size:20px">Editar: '+esc(p.nome)+' <span class="mono">('+esc(p.codigo)+')</span></h2>'
+   +'<div class="fgrid" style="margin-top:12px">'
+   +'<div class="campo"><label>Nome</label><input id="e-nome" value="'+esc(p.nome)+'"></div>'
+   +'<div class="campo"><label>Categoria</label><input id="e-cat" value="'+esc(p.categoria)+'"></div>'
+   +'<div class="campo"><label>Marca</label><input id="e-marca" value="'+esc(p.marca||'')+'"></div>'
+   +'<div class="campo"><label>Modelo</label><input id="e-modelo" value="'+esc(p.modelo||'')+'"></div>'
+   +'<div class="campo full"><label>Descrição</label><textarea id="e-desc">'+esc(p.descricao||'')+'</textarea></div>'
+   +'<div class="campo"><label>Unidade de venda</label><input id="e-un" value="'+esc(p.unidade||'')+'"></div>'
+   +'<div class="campo"><label>Garantia (vazia = a confirmar na cotação)</label><input id="e-gar" value="'+esc(p.garantia||'')+'"></div>'
+   +'<div class="campo"><label>Estado do preço</label><select id="e-est">'
+     +'<option value="consulta"'+(p.precoEstado!=='publico'&&p.precoEstado!=='indisponivel'&&p.precoEstado!=='descontinuado'?' selected':'')+'>Sob consulta</option>'
+     +'<option value="publico"'+(p.precoEstado==='publico'?' selected':'')+'>Preço público</option>'
+     +'<option value="indisponivel"'+(p.precoEstado==='indisponivel'?' selected':'')+'>Indisponível</option>'
+     +'<option value="descontinuado"'+(p.precoEstado==='descontinuado'?' selected':'')+'>Descontinuado</option></select></div>'
+   +'<div class="campo"><label>Preço público (MT) — só se estado = público</label><input id="e-preco" type="number" step="0.01" value="'+(p.preco||'')+'"></div>'
+   +'<div class="campo"><label>Disponibilidade</label><input id="e-disp" value="'+esc(p.disponibilidade||'consultar')+'" placeholder="consultar / em stock / a confirmar…"></div>'
+   +'<div class="campo full"><label>Aplicações recomendadas (uma por linha)</label><textarea id="e-apl">'+esc((p.aplicacoes||[]).join('\n'))+'</textarea></div>'
+   +'<div class="campo full"><label>Características técnicas</label>'+especs+'<button class="btn btn-linha" id="add-spec">+ característica</button></div>'
+   +'<div class="campo full"><label>Fotografia (clicar para escolher)</label><div class="foto-pick" id="e-fotos">'
+     +fotos.map(f=>f?'<img src="'+esc(f)+'" data-f="'+esc(f)+'" class="'+(p.foto===f?'on':'')+'" alt="foto">':'<img data-f="" class="'+(p.foto?'':'on')+'" alt="sem foto" style="background:#EEF3F9">').join('')+'</div></div>'
+   +'<div class="campo full"><label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="e-dest" style="width:auto" '+(p.destaque?'checked':'')+'> Produto em destaque na página inicial</label></div>'
+   +'</div>'
+   +'<p style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-solar" id="e-gravar">Gravar alterações</button><button class="btn btn-linha" id="e-cancel">Fechar</button></p>';
+  const lerSpecs=()=>[...$('#editor').querySelectorAll('.sp-k')].map((k,i)=>({k:k.value.trim(),v:(k.parentElement.querySelector('.sp-v')||{}).value||''})).filter(s=>s.k);
+  $('#add-spec').addEventListener('click',()=>{const d=document.createElement('div');d.style.cssText='display:flex;gap:6px;margin-bottom:5px';d.innerHTML='<input class="sp-k" placeholder="Característica"><input class="sp-v" placeholder="Valor"><button class="btn btn-verm">✕</button>';d.querySelector('button').addEventListener('click',()=>d.remove());$('#add-spec').before(d);});
+  $('#editor').querySelectorAll('[data-rmspec]').forEach(b=>b.addEventListener('click',()=>b.parentElement.remove()));
+  $('#e-fotos').querySelectorAll('img').forEach(im=>im.addEventListener('click',()=>{$('#e-fotos').querySelectorAll('img').forEach(x=>x.classList.remove('on'));im.classList.add('on');}));
+  $('#e-cancel').addEventListener('click',()=>{$('#editor').hidden=true;editId=null;});
+  $('#e-gravar').addEventListener('click',()=>{
+    p.nome=$('#e-nome').value.trim()||p.nome; p.categoria=$('#e-cat').value.trim()||p.categoria;
+    p.marca=$('#e-marca').value.trim(); p.modelo=$('#e-modelo').value.trim();
+    p.descricao=$('#e-desc').value.trim(); p.unidade=$('#e-un').value.trim();
+    p.garantia=$('#e-gar').value.trim();
+    p.precoEstado=$('#e-est').value; p.preco=p.precoEstado==='publico'?Number($('#e-preco').value)||null:null;
+    p.disponibilidade=$('#e-disp').value.trim()||'consultar';
+    p.aplicacoes=$('#e-apl').value.split('\n').map(x=>x.trim()).filter(Boolean);
+    p.especificacoes=lerSpecs();
+    const on=$('#e-fotos img.on'); p.foto=on?on.dataset.f:'';
+    p.destaque=$('#e-dest').checked;
+    guardarLocal(); marcar();
+    $('#editor').hidden=true; verProd();
+    alert('Gravado (cópia local — exporte o catalogo.json para publicar).');
+  });
+}
+
+/* ---------- serviços ---------- */
+function verServ(){
+  const l=(CAT.servicos||[]).map(s=>'<tr><td>'+esc(s.nome)+'</td><td>'+esc(s.tipoCliente)+'</td><td><button class="btn btn-linha" data-sed="'+esc(s.id)+'">Editar</button></td></tr>').join('');
+  $('#v-serv').innerHTML='<div class="card"><h2 style="font-size:20px">Serviços ('+(CAT.servicos||[]).length+')</h2><div style="overflow:auto;margin-top:10px"><table><tr><th>Serviço</th><th>Para quem</th><th></th></tr>'+l+'</table></div></div><div class="card" id="s-editor" hidden></div>';
+  $('#v-serv').querySelectorAll('[data-sed]').forEach(b=>b.addEventListener('click',()=>editarServ(b.dataset.sed)));
+}
+function editarServ(id){
+  const s=(CAT.servicos||[]).find(x=>x.id===id); if(!s)return; editServId=id;
+  $('#s-editor').hidden=false;
+  $('#s-editor').innerHTML='<h2 style="font-size:20px">Editar serviço</h2><div class="fgrid" style="margin-top:12px">'
+   +'<div class="campo"><label>Nome</label><input id="s-nome" value="'+esc(s.nome)+'"></div>'
+   +'<div class="campo"><label>Para quem</label><input id="s-alvo" value="'+esc(s.tipoCliente||'')+'"></div>'
+   +'<div class="campo full"><label>Descrição</label><textarea id="s-desc">'+esc(s.descricao||'')+'</textarea></div>'
+   +'<div class="campo full"><label>Atividades incluídas (uma por linha)</label><textarea id="s-at">'+esc((s.atividades||[]).join('\n'))+'</textarea></div>'
+   +'<div class="campo full"><label>Informação necessária para pedir</label><input id="s-inf" value="'+esc(s.infoNecessaria||'')+'"></div>'
+   +'</div><p style="margin-top:12px;display:flex;gap:10px"><button class="btn btn-solar" id="s-gravar">Gravar</button><button class="btn btn-linha" id="s-cancel">Fechar</button></p>';
+  $('#s-cancel').addEventListener('click',()=>{$('#s-editor').hidden=true;});
+  $('#s-gravar').addEventListener('click',()=>{
+    s.nome=$('#s-nome').value.trim()||s.nome; s.tipoCliente=$('#s-alvo').value.trim();
+    s.descricao=$('#s-desc').value.trim(); s.atividades=$('#s-at').value.split('\n').map(x=>x.trim()).filter(Boolean);
+    s.infoNecessaria=$('#s-inf').value.trim();
+    guardarLocal(); marcar(); $('#s-editor').hidden=true; verServ(); alert('Gravado (exporte para publicar).');
+  });
+}
+
+/* ---------- servidor central (Fase C) ---------- */
+const EMS_API='https://ems-servidor.onrender.com';
+let SRVTOK='';
+async function srvToken(){if(SRVTOK)return SRVTOK;const s=prompt('Palavra-passe do servidor central (EMS):');if(!s)return '';const r=await fetch(EMS_API+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({senha:s})});if(!r.ok)throw new Error('Palavra-passe incorreta ou servidor inacessível.');const j=await r.json();SRVTOK=j.token||'';return SRVTOK}
+
+/* ---------- pedidos ---------- */
+function verPed(){
+  const st=JSON.parse(localStorage.getItem(LS)||'{}');
+  const ped=st.pedidos||[];
+  const l=ped.slice().reverse().map((p,i)=>'<tr><td class="mono">'+esc(p.ref)+'</td><td>'+esc(p.data)+'</td><td>'+esc(p.nome)+'<br>'+esc(p.telefone)+'</td><td>'+esc(p.resumo||'')+'</td><td><span class="badge '+(p.estado==='atendido'?'badge-verde':'')+'">'+esc(p.estado||'novo')+'</span></td>'
+    +'<td><button class="btn btn-linha" data-pest="'+i+'">Mudar estado</button> <a class="btn btn-linha" target="_blank" rel="noopener" href="https://wa.me/258'+String((p.telefone||'').replace(/\D/g,''))+'">WhatsApp</a></td></tr>').join('')||'<tr><td colspan="6">Sem pedidos registados.</td></tr>';
+  $('#v-ped').innerHTML='<div class="card"><h2 style="font-size:20px">Pedidos de cotação — registo local</h2>'
+    +'<p class="aviso">Os pedidos do site chegam pelo WhatsApp do cliente e, quando o servidor central está acessível, ficam também registados na sua base de dados (PostgreSQL). Abaixo: registo local; no fim da página, as cotações vindas do servidor.</p>'
+   +'<div style="overflow:auto;margin-top:10px"><table><tr><th>Ref.</th><th>Data</th><th>Cliente</th><th>Pedido</th><th>Estado</th><th></th></tr>'+l+'</table></div>'
+    +'<p style="margin-top:12px"><button class="btn btn-azul" id="add-ped">+ Registar pedido recebido</button> <button class="btn btn-linha" id="ped-srv">Carregar cotações do servidor central</button></p><div id="ped-form"></div><div id="ped-srv-out" style="margin-top:12px"></div></div>';
+  $('#add-ped').addEventListener('click',()=>{
+    $('#ped-form').innerHTML='<div class="fgrid" style="margin-top:10px">'
+     +'<div class="campo"><label>Nome</label><input id="p-nome"></div><div class="campo"><label>Telefone</label><input id="p-tel"></div>'
+     +'<div class="campo full"><label>Pedido (produto/serviço + descrição)</label><textarea id="p-res"></textarea></div></div>'
+     +'<p style="margin-top:10px"><button class="btn btn-solar" id="p-gravar">Registar</button></p>';
+    $('#p-gravar').addEventListener('click',()=>{
+      const ref='COT-'+new Date().getFullYear()+'-'+String((ped.length+1)).padStart(4,'0');
+      ped.push({ref,data:new Date().toLocaleDateString('pt-PT'),nome:$('#p-nome').value.trim(),telefone:$('#p-tel').value.trim(),resumo:$('#p-res').value.trim(),estado:'novo'});
+      const st2=JSON.parse(localStorage.getItem(LS)||'{}');st2.pedidos=ped;localStorage.setItem(LS,JSON.stringify(st2));
+      verPed();
+    });
+  });
+  $('#v-ped').querySelectorAll('[data-pest]').forEach(b=>b.addEventListener('click',()=>{
+    const i=Number(b.dataset.pest); const e=prompt('Novo estado (novo / em curso / cotação enviada / atendido / perdido):',ped[i].estado||'novo');
+    if(e){ped[i].estado=e;const st2=JSON.parse(localStorage.getItem(LS)||'{}');st2.pedidos=ped;localStorage.setItem(LS,JSON.stringify(st2));verPed();}
+  }));
+  $('#ped-srv').addEventListener('click',async()=>{
+    const out=$('#ped-srv-out');out.innerHTML='<p class="aviso">A ligar ao servidor central…</p>';
+    try{
+      const tok=await srvToken();if(!tok){out.innerHTML='';return}
+      const r=await fetch(EMS_API+'/api/admin/quotes',{headers:{authorization:'Bearer '+tok}});
+      if(r.status===401){SRVTOK='';throw new Error('sessão/palavra-passe recusada');}
+      if(!r.ok)throw new Error('servidor respondeu '+r.status);
+      const j=await r.json();
+      if(!j.cotacoes||!j.cotacoes.length){out.innerHTML='<div class="card"><p class="aviso">Sem cotações registadas no servidor central.</p></div>';return}
+      out.innerHTML='<div class="card"><h2 style="font-size:20px">Cotações no servidor central (PostgreSQL)</h2><p class="aviso">'+j.total+' cotação(ões) — gravadas na base de dados, partilhadas por todos os dispositivos.</p><div style="overflow:auto;margin-top:10px"><table><tr><th>Ref.</th><th>Data</th><th>Cliente</th><th>Pedido</th><th>Estado</th><th></th></tr>'
+        +j.cotacoes.map(p=>{const d=p.data||{};
+          const resumo=[d.tipo,d.produtoNome||d.produto,d.servicoNome||d.servico,d.qtd?('Qtd: '+d.qtd):'',d.local?('Local: '+d.local):'',d.prazo?('Prazo: '+d.prazo):'',d.desc].filter(Boolean).join(' — ');
+          const tel=String(d.telefone||'').replace(/\D/g,'');
+          return '<tr><td class="mono">'+esc(d.ref||('#'+p.id))+'</td><td>'+esc(String(d.quando||p.quando||'').replace('T',' ').slice(0,16))+'</td><td>'+esc(d.nome||'')+'<br>'+esc(d.telefone||d.email||'')+'</td><td>'+esc(resumo)+'</td><td><span class="badge '+(p.processado?'badge-verde':'')+'">'+(p.processado?'atendido':'novo')+'</span></td>'
+            +'<td><button class="btn btn-linha" data-sid="'+p.id+'" data-sref="'+esc(d.ref||'')+'" data-sp="'+(p.processado?'1':'0')+'">'+(p.processado?'Reabrir':'Marcar atendido')+'</button>'+(tel?' <a class="btn btn-linha" target="_blank" rel="noopener" href="https://wa.me/258'+tel+'">WhatsApp</a>':'')+'</td></tr>';}).join('')
+        +'</table></div></div>';
+      out.querySelectorAll('[data-sid]').forEach(b=>b.addEventListener('click',async()=>{
+        const proc=b.dataset.sp!=='1';
+        try{const tok2=SRVTOK||await srvToken();if(!tok2)return;
+          const r2=await fetch(EMS_API+'/api/admin/quotes/estado',{method:'POST',headers:{'Content-Type':'application/json',authorization:'Bearer '+tok2},body:JSON.stringify({id:Number(b.dataset.sid),ref:b.dataset.sref,processado:proc})});
+          if(r2.status===401){SRVTOK='';throw new Error('sessão expirada — carregue de novo');}
+          if(!r2.ok)throw new Error('servidor respondeu '+r2.status);
+          $('#ped-srv').click();
+        }catch(e){alert('Não foi possível atualizar: '+e.message);}
+      }));
+    }catch(e){out.innerHTML='<p class="aviso">Falha ao ligar ao servidor central: '+esc(e.message)+'</p>'}
+  });
+}
+
+/* ---------- configuração ---------- */
+function verConf(){
+  const e=CAT.empresa||{};
+  $('#v-conf').innerHTML='<div class="card"><h2 style="font-size:20px">Configuração institucional</h2><div class="fgrid" style="margin-top:12px">'
+   +'<div class="campo"><label>Nome da empresa</label><input id="c-nome" value="'+esc(e.nome||'')+'"></div>'
+   +'<div class="campo"><label>NUIT</label><input id="c-nuit" value="'+esc(e.nuit||'')+'"></div>'
+   +'<div class="campo"><label>WhatsApp comercial (só números)</label><input id="c-wa" value="'+esc(e.whatsapp||'')+'"></div>'
+   +'<div class="campo"><label>Localização</label><input id="c-loc" value="'+esc(e.localizacao||'')+'"></div>'
+   +'<div class="campo"><label>Email (opcional)</label><input id="c-email" value="'+esc(e.email||'')+'"></div>'
+   +'<div class="campo"><label>Telefones (separados por vírgula)</label><input id="c-tel" value="'+esc((e.contactos||[]).join(', '))+'"></div>'
+   +'</div><p style="margin-top:12px"><button class="btn btn-solar" id="c-gravar">Gravar</button></p></div>';
+  $('#c-gravar').addEventListener('click',()=>{
+    CAT.empresa={nome:$('#c-nome').value.trim(),nuit:$('#c-nuit').value.trim(),whatsapp:$('#c-wa').value.replace(/\D/g,''),localizacao:$('#c-loc').value.trim(),email:$('#c-email').value.trim(),contactos:$('#c-tel').value.split(',').map(x=>x.trim()).filter(Boolean)};
+    guardarLocal(); marcar(); alert('Gravado (exporte para publicar).');
+  });
+}
+
+/* ---------- export / import ---------- */
+function verExp(){
+  $('#v-exp').innerHTML='<div class="card"><h2 style="font-size:20px">Exportar / Importar catálogo</h2>'
+   +'<p class="aviso" style="margin-bottom:12px">O catálogo do site vive no ficheiro <b>catalogo.json</b> e no <b>servidor central</b>. Publique no servidor com o botão (o portal atualiza-se sozinho) e exporte o JSON para guardar uma cópia.</p>'
+   +'<p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-solar" id="exp-baixar">Exportar catalogo.json</button>'
+   +'<label class="btn btn-linha" style="cursor:pointer">Importar ficheiro<input type="file" id="imp-file" accept=".json" hidden></label>'
+   +'<button class="btn btn-azul" id="exp-publicar">Publicar no servidor central</button></p>'
+   +'<p class="aviso">Última atualização marcada: <b>'+esc(CAT.atualizado||'—')+'</b></p></div>';
+  $('#exp-baixar').addEventListener('click',()=>{
+    const blob=new Blob([JSON.stringify(CAT,null,1)],{type:'application/json'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='catalogo.json';a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  });
+  $('#exp-publicar').addEventListener('click',async()=>{
+    try{const tok=await srvToken();if(!tok)return;
+      const r=await fetch(EMS_API+'/api/admin/catalog/publish',{method:'POST',headers:{'Content-Type':'application/json',authorization:'Bearer '+tok},body:JSON.stringify({catalogo:CAT})});
+      if(r.status===401){SRVTOK='';throw new Error('palavra-passe recusada');}
+      const j=await r.json().catch(()=>({}));
+      if(r.ok&&j.ok)alert('Publicado no servidor central (revisão '+j.revision+'). O portal passa a carregar o catálogo do servidor central.');
+      else alert('Falha ao publicar: '+(j.erro||('HTTP '+r.status)));
+    }catch(e){alert('Falha ao publicar: '+e.message);}
+  });
+  $('#imp-file').addEventListener('change',ev=>{
+    const f=ev.target.files[0]; if(!f)return;
+    const r=new FileReader();
+    r.onload=()=>{try{const j=JSON.parse(r.result);if(!j.produtos)throw new Error('sem produtos');CAT=j;guardarLocal();verProd();alert('Importado ('+j.produtos.length+' produtos).');}catch(e){alert('Ficheiro inválido: '+e.message);}};
+    r.readAsText(f);
+  });
+}
+
+iniciar();
+</script>
+</body>
+</html>

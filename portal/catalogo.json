@@ -1,0 +1,1202 @@
+{
+ "atualizado": "2026-10-27",
+ "empresa": {
+  "nome": "Electro-Moz-Solar E.I.",
+  "nuit": "122561291",
+  "contactos": [
+   "852652545",
+   "841069443"
+  ],
+  "whatsapp": "841069443",
+  "localizacao": "Matola / Maputo",
+  "email": "",
+  "slogan": "Energia, material elétrico e soluções técnicas"
+ },
+ "produtos": [
+  {
+   "id": "CAB-1.5",
+   "codigo": "CAB-1.5",
+   "nome": "Cabo elétrico 1,5 mm — rolo 100 m",
+   "categoria": "Cabos",
+   "unidade": "rolo",
+   "descricao": "Cabos elétricos para instalações residenciais e comerciais: circuitos de iluminação e tomadas.",
+   "especificacoes": [
+    {
+     "k": "Secção",
+     "v": "1,5 mm²"
+    },
+    {
+     "k": "Comprimento",
+     "v": "100 m"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-44.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "CAB-2.5",
+    "CAB-4",
+    "CAB-6"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "CAB-2.5",
+   "codigo": "CAB-2.5",
+   "nome": "Cabo elétrico 2,5 mm — rolo 100 m",
+   "categoria": "Cabos",
+   "unidade": "rolo",
+   "descricao": "Cabo para circuitos de tomadas e cargas médias.",
+   "especificacoes": [
+    {
+     "k": "Secção",
+     "v": "2,5 mm²"
+    },
+    {
+     "k": "Comprimento",
+     "v": "100 m"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-44.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "CAB-1.5",
+    "CAB-4",
+    "CAB-6"
+   ],
+   "publicar": true,
+   "destaque": true
+  },
+  {
+   "id": "CAB-4",
+   "codigo": "CAB-4",
+   "nome": "Cabo elétrico 4 mm — rolo 100 m",
+   "categoria": "Cabos",
+   "unidade": "rolo",
+   "descricao": "Cabo para circuitos de maior carga (ar condicionado, bombas, cozinhas).",
+   "especificacoes": [
+    {
+     "k": "Secção",
+     "v": "4 mm²"
+    },
+    {
+     "k": "Comprimento",
+     "v": "100 m"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-44.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "CAB-1.5",
+    "CAB-2.5",
+    "CAB-6"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "CAB-6",
+   "codigo": "CAB-6",
+   "nome": "Cabo elétrico 6 mm — rolo 100 m",
+   "categoria": "Cabos",
+   "unidade": "rolo",
+   "descricao": "Cabo para alimentações principais e cargas elevadas.",
+   "especificacoes": [
+    {
+     "k": "Secção",
+     "v": "6 mm²"
+    },
+    {
+     "k": "Comprimento",
+     "v": "100 m"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-44.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "CAB-1.5",
+    "CAB-2.5",
+    "CAB-4"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "FIO-1.5",
+   "codigo": "FIO-1.5",
+   "nome": "Fio flexível 1,5 mm — 100 m",
+   "categoria": "Cabos",
+   "unidade": "rolo",
+   "descricao": "Fio flexível para ligações internas e quadros.",
+   "especificacoes": [
+    {
+     "k": "Secção",
+     "v": "1,5 mm²"
+    },
+    {
+     "k": "Comprimento",
+     "v": "100 m"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-59.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "CAB-1.5",
+    "CAB-2.5",
+    "CAB-4"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "DIS-25",
+   "codigo": "DIS-25",
+   "nome": "Disjuntor caixa moldada 25 A",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Proteção de circuitos contra sobrecargas e curto-circuitos.",
+   "especificacoes": [
+    {
+     "k": "Corrente nominal",
+     "v": "25 A"
+    },
+    {
+     "k": "Polos",
+     "v": "caixa moldada"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "DIS-32",
+    "DIF-2P",
+    "QUA-12"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "DIS-32",
+   "codigo": "DIS-32",
+   "nome": "Disjuntor caixa moldada 32 A",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Proteção de circuitos com cargas elevadas.",
+   "especificacoes": [
+    {
+     "k": "Corrente nominal",
+     "v": "32 A"
+    },
+    {
+     "k": "Polos",
+     "v": "caixa moldada"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "DIS-25",
+    "DIF-2P",
+    "QUA-12"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "DIF-2P",
+   "codigo": "DIF-2P",
+   "nome": "Disjuntor diferencial 2P 30 mA",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Proteção de pessoas contra fugas de corrente — indispensável em instalações modernas.",
+   "especificacoes": [
+    {
+     "k": "Polos",
+     "v": "2P"
+    },
+    {
+     "k": "Sensibilidade",
+     "v": "30 mA"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-57.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "DIS-25",
+    "DIS-32",
+    "QUA-12"
+   ],
+   "publicar": true,
+   "destaque": true
+  },
+  {
+   "id": "QUA-12",
+   "codigo": "QUA-12",
+   "nome": "Quadro elétrico 12 módulos",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Quadro para proteções e aparelhagem de instalação.",
+   "especificacoes": [
+    {
+     "k": "Módulos",
+     "v": "12"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-52.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "DIS-25",
+    "DIS-32",
+    "DIF-2P"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "TER-1.5",
+   "codigo": "TER-1.5",
+   "nome": "Haste de terra 1,5 m com cabo",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Ligação à terra para segurança da instalação.",
+   "especificacoes": [
+    {
+     "k": "Comprimento",
+     "v": "1,5 m"
+    },
+    {
+     "k": "Acessório",
+     "v": "com cabo"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "DIS-25",
+    "DIS-32",
+    "DIF-2P"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "TOM-S",
+   "codigo": "TOM-S",
+   "nome": "Tomada simples branca",
+   "categoria": "Tomadas e Interruptores",
+   "unidade": "un",
+   "descricao": "Tomada de parede para uso geral.",
+   "especificacoes": [
+    {
+     "k": "Tipo",
+     "v": "simples"
+    },
+    {
+     "k": "Cor",
+     "v": "branca"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-25-d3crky6B.jpg.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "TOM-D",
+    "INT-S",
+    "INT-P"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "TOM-D",
+   "codigo": "TOM-D",
+   "nome": "Tomada dupla branca",
+   "categoria": "Tomadas e Interruptores",
+   "unidade": "un",
+   "descricao": "Tomada de parede com dois pontos de ligação.",
+   "especificacoes": [
+    {
+     "k": "Tipo",
+     "v": "dupla"
+    },
+    {
+     "k": "Cor",
+     "v": "branca"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "TOM-S",
+    "INT-S",
+    "INT-P"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "INT-S",
+   "codigo": "INT-S",
+   "nome": "Interruptor simples",
+   "categoria": "Tomadas e Interruptores",
+   "unidade": "un",
+   "descricao": "Interruptor de parede para circuitos de iluminação.",
+   "especificacoes": [],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "TOM-S",
+    "TOM-D",
+    "INT-P"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "INT-P",
+   "codigo": "INT-P",
+   "nome": "Interruptor paralelo",
+   "categoria": "Tomadas e Interruptores",
+   "unidade": "un",
+   "descricao": "Permite comandar a mesma luz de dois pontos distintos.",
+   "especificacoes": [],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "TOM-S",
+    "TOM-D",
+    "INT-S"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "LED-9",
+   "codigo": "LED-9",
+   "nome": "Lâmpada LED 9 W E27",
+   "categoria": "Iluminação",
+   "unidade": "un",
+   "descricao": "Iluminação eficiente para uso diário.",
+   "especificacoes": [
+    {
+     "k": "Potência",
+     "v": "9 W"
+    },
+    {
+     "k": "Casquilho",
+     "v": "E27"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-55.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "LED-18",
+    "PRO-50"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "LED-18",
+   "codigo": "LED-18",
+   "nome": "Lâmpada LED 18 W",
+   "categoria": "Iluminação",
+   "unidade": "un",
+   "descricao": "Maior fluxo luminoso para divisões amplas.",
+   "especificacoes": [
+    {
+     "k": "Potência",
+     "v": "18 W"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-65.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "LED-9",
+    "PRO-50"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "PRO-50",
+   "codigo": "PRO-50",
+   "nome": "Projetor LED 50 W IP66",
+   "categoria": "Iluminação",
+   "unidade": "un",
+   "descricao": "Iluminação exterior resistente a poeira e chuva.",
+   "especificacoes": [
+    {
+     "k": "Potência",
+     "v": "50 W"
+    },
+    {
+     "k": "Proteção",
+     "v": "IP66"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "LED-9",
+    "LED-18"
+   ],
+   "publicar": true,
+   "destaque": true
+  },
+  {
+   "id": "FIT-I",
+   "codigo": "FIT-I",
+   "nome": "Fita isoladora 19 mm",
+   "categoria": "Acessórios",
+   "unidade": "un",
+   "descricao": "Isolamento elétrico de emendas e ligações.",
+   "especificacoes": [
+    {
+     "k": "Largura",
+     "v": "19 mm"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-11-CaQU7kll.jpg.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "ELE-2.5"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "ELE-2.5",
+   "codigo": "ELE-2.5",
+   "nome": "Eletrodo 2,5 mm — pacote 5 kg",
+   "categoria": "Acessórios",
+   "unidade": "pacote",
+   "descricao": "Eletrodos para trabalhos de soldadura e manutenção.",
+   "especificacoes": [
+    {
+     "k": "Diâmetro",
+     "v": "2,5 mm"
+    },
+    {
+     "k": "Peso",
+     "v": "5 kg"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "FIT-I"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "PAN-150",
+   "codigo": "PAN-150",
+   "nome": "Painel solar 150 W",
+   "categoria": "Painéis Solares",
+   "unidade": "un",
+   "descricao": "Painel fotovoltaico para sistemas autónomos e de apoio.",
+   "especificacoes": [
+    {
+     "k": "Potência",
+     "v": "150 W"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-47.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "CON-20",
+    "BAT-100"
+   ],
+   "publicar": true,
+   "destaque": true
+  },
+  {
+   "id": "CON-20",
+   "codigo": "CON-20",
+   "nome": "Controlador de carga 20 A",
+   "categoria": "Painéis Solares",
+   "unidade": "un",
+   "descricao": "Gestão de carga e descarga das baterias no sistema solar.",
+   "especificacoes": [
+    {
+     "k": "Corrente",
+     "v": "20 A"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "PAN-150",
+    "BAT-100"
+   ],
+   "publicar": true,
+   "destaque": true
+  },
+  {
+   "id": "BAT-100",
+   "codigo": "BAT-100",
+   "nome": "Bateria solar 100 Ah",
+   "categoria": "Painéis Solares",
+   "unidade": "un",
+   "descricao": "Armazenamento de energia para sistemas fotovoltaicos.",
+   "especificacoes": [
+    {
+     "k": "Capacidade",
+     "v": "100 Ah"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "PAN-150",
+    "CON-20"
+   ],
+   "publicar": true,
+   "destaque": true
+  }
+ ],
+ "categorias": [
+  {
+   "id": "Cabos",
+   "nome": "Cabos",
+   "foto": "assets/fotos/foto-59.jpg"
+  },
+  {
+   "id": "Proteção",
+   "nome": "Proteção",
+   "foto": "assets/fotos/foto-61.jpg"
+  },
+  {
+   "id": "Tomadas e Interruptores",
+   "nome": "Tomadas e Interruptores",
+   "foto": "assets/fotos/foto-25-d3crky6B.jpg.jpg"
+  },
+  {
+   "id": "Iluminação",
+   "nome": "Iluminação",
+   "foto": "assets/fotos/foto-64.jpg"
+  },
+  {
+   "id": "Acessórios",
+   "nome": "Acessórios",
+   "foto": "assets/fotos/foto-37-u3vClwEQ.jpg.jpg"
+  },
+  {
+   "id": "Painéis Solares",
+   "nome": "Painéis Solares",
+   "foto": "assets/fotos/foto-47.jpg"
+  }
+ ],
+ "servicos": [
+  {
+   "id": "sv1",
+   "nome": "Instalação de sistemas solares",
+   "descricao": "Projeto e montagem completos de sistemas fotovoltaicos: dimensionamento, fixação de painéis e estruturas, ligação de inversor, baterias e proteções DC/AC, testes e arranque.",
+   "tipoCliente": "Residencial, comercial e rural / sem rede",
+   "atividades": [
+    "Visita e levantamento no local",
+    "Dimensionamento do sistema",
+    "Montagem de painéis e estruturas",
+    "Instalação de inversor, baterias e proteções",
+    "Testes, arranque e explicação ao cliente"
+   ],
+   "infoNecessaria": "Localização do projeto, consumo médio mensal (ou aparelhos a alimentar), tipo de telhado/terreno, fotos do local se possível.",
+   "foto": "assets/instalacao-solar-telhado.jpg"
+  },
+  {
+   "id": "sv2",
+   "nome": "Ampliação de sistemas fotovoltaicos",
+   "descricao": "Acréscimo de painéis, baterias ou nova capacidade ao sistema solar existente, com verificação das proteções e do inversor.",
+   "tipoCliente": "Quem já tem sistema solar",
+   "atividades": [
+    "Avaliação do sistema atual",
+    "Verificação de compatibilidade",
+    "Instalação dos novos componentes",
+    "Testes de carga"
+   ],
+   "infoNecessaria": "Marca/modelo do inversor e painéis atuais, fotos do sistema, necessidade pretendida.",
+   "foto": "assets/fotos/foto-05-5ZnhTMT8.jpg.jpg"
+  },
+  {
+   "id": "sv3",
+   "nome": "Manutenção preventiva e corretiva",
+   "descricao": "Manutenção periódica de sistemas solares e instalações elétricas: limpeza de painéis, aperto de ligações, verificação de baterias e proteções, correção de avarias.",
+   "tipoCliente": "Residencial e empresarial",
+   "atividades": [
+    "Inspeção periódica",
+    "Limpeza de painéis",
+    "Verificação de baterias e ligações",
+    "Correção de avarias"
+   ],
+   "infoNecessaria": "Frequência desejada, tipo de instalação, histórico de avarias.",
+   "foto": "assets/fotos/foto-04-2rcyJcRb.jpg.jpg"
+  },
+  {
+   "id": "sv4",
+   "nome": "Diagnóstico de avarias elétricas",
+   "descricao": "Identificação da causa de cortes, disparos de disjuntores, falhas de energia e riscos elétricos, com relatório e proposta de correção.",
+   "tipoCliente": "Residencial, comercial e industrial",
+   "atividades": [
+    "Inspeção e medições",
+    "Identificação da causa",
+    "Proposta de correção",
+    "Reparação, se aprovada"
+   ],
+   "infoNecessaria": "Descrição do problema, frequência, fotos do quadro elétrico.",
+   "foto": "assets/quadro-eletrico-instalacao.jpg"
+  },
+  {
+   "id": "sv5",
+   "nome": "Instalações elétricas residenciais",
+   "descricao": "Instalação completa ou parcial de redes elétricas em habitações: quadros, circuitos, tomadas, interruptores e iluminação.",
+   "tipoCliente": "Proprietários e empreiteiros",
+   "atividades": [
+    "Projeto de circuitos",
+    "Instalação de tubagem e cablagem",
+    "Montagem de quadro e aparelhagem",
+    "Testes finais"
+   ],
+   "infoNecessaria": "Planta ou fotos da casa, fase do obra, necessidade.",
+   "foto": "assets/fotos/foto-03-1CKogDZ1.jpg.jpg"
+  },
+  {
+   "id": "sv6",
+   "nome": "Instalações elétricas comerciais e industriais",
+   "descricao": "Redes elétricas para lojas, escritórios, armazéns e unidades industriais, com proteções adequadas a cada carga.",
+   "tipoCliente": "Empresas",
+   "atividades": [
+    "Levantamento de cargas",
+    "Dimensionamento e projeto",
+    "Execução de cablagem e quadros",
+    "Testes e documentação"
+   ],
+   "infoNecessaria": "Tipo de atividade, área, potência necessária, prazos.",
+   "foto": "assets/fotos/foto-07-7sl5Rry7.jpg.jpg"
+  },
+  {
+   "id": "sv7",
+   "nome": "Manutenção de geradores",
+   "descricao": "Manutenção preventiva e corretiva de grupos geradores: óleo, filtros, bateria de arranque e testes de carga.",
+   "tipoCliente": "Empresas e instituições",
+   "atividades": [
+    "Verificação de óleo e filtros",
+    "Teste de arranque e carga",
+    "Recomendações de utilização"
+   ],
+   "infoNecessaria": "Marca e modelo do gerador, horas de funcionamento, histórico.",
+   "foto": ""
+  },
+  {
+   "id": "sv8",
+   "nome": "Dimensionamento de sistemas solares",
+   "descricao": "Estudo técnico para definir painéis, baterias, inversor e proteções certos para cada consumo — antes de investir.",
+   "tipoCliente": "Quem planeja investir em solar",
+   "atividades": [
+    "Análise do consumo",
+    "Proposta de dimensionamento",
+    "Lista de material",
+    "Previsão de produção"
+   ],
+   "infoNecessaria": "Consumo mensal ou lista de aparelhos, localização, orçamento previsto.",
+   "foto": "assets/fotos/foto-18-R9gahevr.jpg.jpg"
+  },
+  {
+   "id": "sv9",
+   "nome": "Fornecimento e montagem de equipamentos",
+   "descricao": "Fornecimento de material elétrico e solar do catálogo, com montagem e arranque quando solicitado.",
+   "tipoCliente": "Empresas e particulares",
+   "atividades": [
+    "Proposta comercial",
+    "Fornecimento do material",
+    "Montagem e arranque",
+    "Garantia conforme produto"
+   ],
+   "infoNecessaria": "Lista de material pretendido, quantidades, prazo.",
+   "foto": "assets/fotos/foto-30-lKG8Ubxb.jpg.jpg"
+  }
+ ],
+ "fotosDisponiveis": [
+  "assets/fotos/foto-05-5ZnhTMT8.jpg.jpg",
+  "assets/fotos/foto-31-lLdZTUi1.jpg.jpg",
+  "assets/fotos/foto-09-CGvMTqii.jpg.jpg",
+  "assets/fotos/foto-17-KZbnvt11.jpg.jpg",
+  "assets/fotos/foto-15-JhCPgYez.jpg.jpg",
+  "assets/fotos/foto-12-Fdr49wzK.jpg.jpg",
+  "assets/fotos/foto-21-XLa760i5.jpg.jpg",
+  "assets/fotos/foto-30-lKG8Ubxb.jpg.jpg",
+  "assets/fotos/foto-18-R9gahevr.jpg.jpg",
+  "assets/fotos/foto-40-yalxHgGe.jpg.jpg",
+  "assets/fotos/foto-33-p19Ser3m.jpg.jpg",
+  "assets/fotos/foto-19-Raxbtnd6.jpg.jpg",
+  "assets/fotos/foto-13-IRme8i6S.jpg.jpg",
+  "assets/fotos/foto-35-siHvkiTJ.jpg.jpg",
+  "assets/fotos/foto-11-CaQU7kll.jpg.jpg",
+  "assets/fotos/foto-03-1CKogDZ1.jpg.jpg",
+  "assets/fotos/foto-37-u3vClwEQ.jpg.jpg",
+  "assets/fotos/foto-34-p8rPR5sp.jpg.jpg",
+  "assets/fotos/foto-16-KPoj0ICO.jpg.jpg",
+  "assets/fotos/foto-08-9uD2Mhq5.jpg.jpg",
+  "assets/fotos/foto-23-ZYZMavVh.jpg.jpg",
+  "assets/fotos/foto-29-lK6PmagD.jpg.jpg",
+  "assets/fotos/foto-27-gL2zxG5k.jpg.jpg",
+  "assets/fotos/foto-41-yr4er32i.jpg.jpg",
+  "assets/fotos/foto-10-CRkXa0nh.jpg.jpg",
+  "assets/fotos/foto-36-tmhvIfJG.jpg.jpg",
+  "assets/fotos/foto-20-Wi2sIPaE.jpg.jpg",
+  "assets/fotos/foto-32-nGOuy39H.jpg.jpg",
+  "assets/fotos/foto-06-69fyCrWg.jpg.jpg",
+  "assets/fotos/foto-07-7sl5Rry7.jpg.jpg",
+  "assets/fotos/foto-28-gtOjsljh.jpg.jpg",
+  "assets/fotos/foto-43-zM6Dqnyx.jpg.jpg",
+  "assets/fotos/foto-42-yySeETZG.jpg.jpg",
+  "assets/fotos/foto-22-XhOCiI5g.jpg.jpg",
+  "assets/fotos/foto-24-csQd9VIn.jpg.jpg",
+  "assets/fotos/foto-14-JY3qYHlO.jpg.jpg",
+  "assets/fotos/foto-01-12SMl7pt.jpg.jpg",
+  "assets/fotos/foto-39-xyXCwEge.jpg.jpg",
+  "assets/fotos/foto-38-upWjx52c.jpg.jpg",
+  "assets/fotos/foto-04-2rcyJcRb.jpg.jpg",
+  "assets/fotos/foto-26-f6fSxYmc.jpg.jpg",
+  "assets/fotos/foto-25-d3crky6B.jpg.jpg",
+  "assets/fotos/foto-02-18FA47UX.jpg.jpg",
+  "assets/fotos/foto-44.jpg",
+  "assets/fotos/foto-45.jpg",
+  "assets/fotos/foto-46.jpg",
+  "assets/fotos/foto-47.jpg",
+  "assets/fotos/foto-48.jpg",
+  "assets/fotos/foto-49.jpg",
+  "assets/fotos/foto-50.jpg",
+  "assets/fotos/foto-51.jpg",
+  "assets/fotos/foto-52.jpg",
+  "assets/fotos/foto-53.jpg",
+  "assets/fotos/foto-54.jpg",
+  "assets/fotos/foto-55.jpg",
+  "assets/fotos/foto-56.jpg",
+  "assets/fotos/foto-57.jpg",
+  "assets/fotos/foto-58.jpg",
+  "assets/fotos/foto-59.jpg",
+  "assets/fotos/foto-60.jpg",
+  "assets/fotos/foto-61.jpg",
+  "assets/fotos/foto-62.jpg",
+  "assets/fotos/foto-63.jpg",
+  "assets/fotos/foto-64.jpg",
+  "assets/fotos/foto-65.jpg"
+ ],
+ "galeria": [
+  {
+   "foto": "assets/fotos/foto-05-5ZnhTMT8.jpg.jpg",
+   "cap": "Inversor solar instalado"
+  },
+  {
+   "foto": "assets/fotos/foto-31-lLdZTUi1.jpg.jpg",
+   "cap": "Pergolado com painéis solares"
+  },
+  {
+   "foto": "assets/fotos/foto-09-CGvMTqii.jpg.jpg",
+   "cap": "Disjuntor modular"
+  },
+  {
+   "foto": "assets/fotos/foto-17-KZbnvt11.jpg.jpg",
+   "cap": "Quadro residencial em montagem"
+  },
+  {
+   "foto": "assets/fotos/foto-15-JhCPgYez.jpg.jpg",
+   "cap": "Quadro de distribuição"
+  },
+  {
+   "foto": "assets/fotos/foto-12-Fdr49wzK.jpg.jpg",
+   "cap": "Obra — eletrodutos na laje"
+  },
+  {
+   "foto": "assets/fotos/foto-21-XLa760i5.jpg.jpg",
+   "cap": "Equipamento em montagem"
+  },
+  {
+   "foto": "assets/fotos/foto-30-lKG8Ubxb.jpg.jpg",
+   "cap": "Equip técnica"
+  },
+  {
+   "foto": "assets/fotos/foto-18-R9gahevr.jpg.jpg",
+   "cap": "Painel e inversor solar"
+  },
+  {
+   "foto": "assets/fotos/foto-40-yalxHgGe.jpg.jpg",
+   "cap": "Disjuntor tetrapolar"
+  },
+  {
+   "foto": "assets/fotos/foto-33-p19Ser3m.jpg.jpg",
+   "cap": ""
+  },
+  {
+   "foto": "assets/fotos/foto-19-Raxbtnd6.jpg.jpg",
+   "cap": "Disjuntor modular"
+  },
+  {
+   "foto": "assets/fotos/foto-13-IRme8i6S.jpg.jpg",
+   "cap": "Obra em curso"
+  },
+  {
+   "foto": "assets/fotos/foto-35-siHvkiTJ.jpg.jpg",
+   "cap": "Bocais E27"
+  },
+  {
+   "foto": "assets/fotos/foto-11-CaQU7kll.jpg.jpg",
+   "cap": "Fita isoladora"
+  },
+  {
+   "foto": "assets/fotos/foto-03-1CKogDZ1.jpg.jpg",
+   "cap": "Instalação predial — eletrodutos"
+  },
+  {
+   "foto": "assets/fotos/foto-37-u3vClwEQ.jpg.jpg",
+   "cap": "Caixa de derivação"
+  },
+  {
+   "foto": "assets/fotos/foto-34-p8rPR5sp.jpg.jpg",
+   "cap": "Disjuntor bipolar"
+  },
+  {
+   "foto": "assets/fotos/foto-16-KPoj0ICO.jpg.jpg",
+   "cap": "Fita de terra (verde/amarela)"
+  },
+  {
+   "foto": "assets/fotos/foto-08-9uD2Mhq5.jpg.jpg",
+   "cap": "Sala técnica — baterias"
+  },
+  {
+   "foto": "assets/fotos/foto-23-ZYZMavVh.jpg.jpg",
+   "cap": "Obra — armadura e eletrodutos"
+  },
+  {
+   "foto": "assets/fotos/foto-29-lK6PmagD.jpg.jpg",
+   "cap": "Quadro com caixa moldada"
+  },
+  {
+   "foto": "assets/fotos/foto-27-gL2zxG5k.jpg.jpg",
+   "cap": "Arandelas instaladas"
+  },
+  {
+   "foto": "assets/fotos/foto-41-yr4er32i.jpg.jpg",
+   "cap": "Inversor híbrido e baterias"
+  },
+  {
+   "foto": "assets/fotos/foto-10-CRkXa0nh.jpg.jpg",
+   "cap": "Instalação de painéis solares"
+  },
+  {
+   "foto": "assets/fotos/foto-36-tmhvIfJG.jpg.jpg",
+   "cap": "Disjuntor"
+  },
+  {
+   "foto": "assets/fotos/foto-20-Wi2sIPaE.jpg.jpg",
+   "cap": "Inversor e equipamento solar"
+  },
+  {
+   "foto": "assets/fotos/foto-32-nGOuy39H.jpg.jpg",
+   "cap": "Inversor solar"
+  },
+  {
+   "foto": "assets/fotos/foto-06-69fyCrWg.jpg.jpg",
+   "cap": "Manutenção em sistema solar"
+  },
+  {
+   "foto": "assets/fotos/foto-07-7sl5Rry7.jpg.jpg",
+   "cap": "Quadro de comando"
+  },
+  {
+   "foto": "assets/fotos/foto-28-gtOjsljh.jpg.jpg",
+   "cap": "Quadro industrial em montagem"
+  },
+  {
+   "foto": "assets/fotos/foto-43-zM6Dqnyx.jpg.jpg",
+   "cap": "Painel de comando industrial"
+  },
+  {
+   "foto": "assets/fotos/foto-42-yySeETZG.jpg.jpg",
+   "cap": "Instalação elétrica em laje"
+  },
+  {
+   "foto": "assets/fotos/foto-22-XhOCiI5g.jpg.jpg",
+   "cap": "Quadro elétrico organizado"
+  },
+  {
+   "foto": "assets/fotos/foto-24-csQd9VIn.jpg.jpg",
+   "cap": "Inversor e bateria de parede"
+  },
+  {
+   "foto": "assets/fotos/foto-14-JY3qYHlO.jpg.jpg",
+   "cap": "Trabalho em telhado solar"
+  },
+  {
+   "foto": "assets/fotos/foto-01-12SMl7pt.jpg.jpg",
+   "cap": "Eletroduto flexível"
+  },
+  {
+   "foto": "assets/fotos/foto-39-xyXCwEge.jpg.jpg",
+   "cap": "Quadro embutido"
+  },
+  {
+   "foto": "assets/fotos/foto-38-upWjx52c.jpg.jpg",
+   "cap": "String box e canaletas"
+  },
+  {
+   "foto": "assets/fotos/foto-04-2rcyJcRb.jpg.jpg",
+   "cap": "Banco de baterias — manutenção"
+  },
+  {
+   "foto": "assets/fotos/foto-26-f6fSxYmc.jpg.jpg",
+   "cap": "Disjuntor diferencial"
+  },
+  {
+   "foto": "assets/fotos/foto-25-d3crky6B.jpg.jpg",
+   "cap": "Tomada"
+  },
+  {
+   "foto": "assets/fotos/foto-02-18FA47UX.jpg.jpg",
+   "cap": "Serviço em residência"
+  },
+  {
+   "foto": "assets/fotos/foto-44.jpg",
+   "cap": "Rolos de cabo elétrico preto e vermelho"
+  },
+  {
+   "foto": "assets/fotos/foto-45.jpg",
+   "cap": "Conectores solares MC4 em Y (ramificação 1→2)"
+  },
+  {
+   "foto": "assets/fotos/foto-46.jpg",
+   "cap": "Conectores solares MC4 macho e fêmea"
+  },
+  {
+   "foto": "assets/fotos/foto-47.jpg",
+   "cap": "Painel solar fotovoltaico monocristalino"
+  },
+  {
+   "foto": "assets/fotos/foto-48.jpg",
+   "cap": "Inversor solar híbrido de parede (Deye)"
+  },
+  {
+   "foto": "assets/fotos/foto-49.jpg",
+   "cap": "Inversor solar de parede MUST"
+  },
+  {
+   "foto": "assets/fotos/foto-50.jpg",
+   "cap": "Inversor solar MUST — gama Pro"
+  },
+  {
+   "foto": "assets/fotos/foto-51.jpg",
+   "cap": "Sensor crepuscular (relé fotoelétrico)"
+  },
+  {
+   "foto": "assets/fotos/foto-52.jpg",
+   "cap": "Quadro de distribuição embutido — porta aberta"
+  },
+  {
+   "foto": "assets/fotos/foto-53.jpg",
+   "cap": "Quadro de distribuição embutido 2 fileiras"
+  },
+  {
+   "foto": "assets/fotos/foto-54.jpg",
+   "cap": "Lâmpadas fluorescentes compactas espiral 6500 K (Ledvance)"
+  },
+  {
+   "foto": "assets/fotos/foto-55.jpg",
+   "cap": "Lâmpada LED E27 (Osram LED Superstar Classic A)"
+  },
+  {
+   "foto": "assets/fotos/foto-56.jpg",
+   "cap": "Disjuntor diferencial tetrapolar Hager CFC 440P"
+  },
+  {
+   "foto": "assets/fotos/foto-57.jpg",
+   "cap": "Disjuntor diferencial EFAPEL MODUS 55"
+  },
+  {
+   "foto": "assets/fotos/foto-58.jpg",
+   "cap": "Tipos de cabo e condutores de cobre"
+  },
+  {
+   "foto": "assets/fotos/foto-59.jpg",
+   "cap": "Fios flexíveis coloridos — rolos"
+  },
+  {
+   "foto": "assets/fotos/foto-60.jpg",
+   "cap": "Rolo de cabo elétrico vermelho"
+  },
+  {
+   "foto": "assets/fotos/foto-61.jpg",
+   "cap": "Descarregadores de sobretensão EFAPEL — gama"
+  },
+  {
+   "foto": "assets/fotos/foto-62.jpg",
+   "cap": "Disjuntor bipolar Schneider Electric Easy9"
+  },
+  {
+   "foto": "assets/fotos/foto-63.jpg",
+   "cap": "Quadro de distribuição embutido"
+  },
+  {
+   "foto": "assets/fotos/foto-64.jpg",
+   "cap": "Lâmpada LED de filamento globo (Osram Vintage 1906)"
+  },
+  {
+   "foto": "assets/fotos/foto-65.jpg",
+   "cap": "Lâmpada LED regulável E27 (Osram Superstar Classic A 100)"
+  }
+ ]
+}
