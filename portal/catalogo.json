@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-10-27",
+ "atualizado": "2026-10-30",
  "empresa": {
   "nome": "Electro-Moz-Solar E.I.",
   "nuit": "122561291",
@@ -708,6 +708,353 @@
    ],
    "publicar": true,
    "destaque": true
+  },
+  {
+   "id": "INV-DEYE",
+   "codigo": "INV-DEYE",
+   "nome": "Inversor solar híbrido de parede",
+   "categoria": "Painéis Solares",
+   "unidade": "un",
+   "descricao": "Inversor híbrido de parede para sistemas solares com ou sem baterias. Potências e modelos disponíveis a confirmar na cotação.",
+   "especificacoes": [
+    {
+     "k": "Montagem",
+     "v": "parede"
+    },
+    {
+     "k": "Tipo",
+     "v": "híbrido"
+    }
+   ],
+   "marca": "Deye",
+   "modelo": "",
+   "foto": "assets/fotos/foto-48.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "PAN-150",
+    "BAT-100",
+    "CON-20"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "INV-MUST",
+   "codigo": "INV-MUST",
+   "nome": "Inversor solar de parede",
+   "categoria": "Painéis Solares",
+   "unidade": "un",
+   "descricao": "Inversor solar de parede para sistemas fotovoltaicos residenciais e comerciais. Modelos e potências a confirmar na cotação.",
+   "especificacoes": [
+    {
+     "k": "Montagem",
+     "v": "parede"
+    }
+   ],
+   "marca": "MUST",
+   "modelo": "",
+   "foto": "assets/fotos/foto-49.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "PAN-150",
+    "BAT-100"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "CON-MC4Y",
+   "codigo": "CON-MC4Y",
+   "nome": "Conector solar MC4 em Y (1 para 2)",
+   "categoria": "Painéis Solares",
+   "unidade": "par",
+   "descricao": "Ramificação MC4 em Y para ligação em paralelo de painéis solares, com vedação.",
+   "especificacoes": [
+    {
+     "k": "Tipo",
+     "v": "MC4 em Y"
+    },
+    {
+     "k": "Ramificação",
+     "v": "1 para 2"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-45.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "CON-MC4",
+    "PAN-150"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "CON-MC4",
+   "codigo": "CON-MC4",
+   "nome": "Par de conectores solares MC4",
+   "categoria": "Painéis Solares",
+   "unidade": "par",
+   "descricao": "Conectores MC4 macho e fêmea para ligações DC de painéis solares. Não desligar sob carga.",
+   "especificacoes": [
+    {
+     "k": "Tipo",
+     "v": "MC4"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-46.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "CON-MC4Y",
+    "PAN-150"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "SEN-FC",
+   "codigo": "SEN-FC",
+   "nome": "Sensor crepuscular (relé fotoelétrico)",
+   "categoria": "Acessórios",
+   "unidade": "un",
+   "descricao": "Acende automaticamente a iluminação exterior ao anoitecer e apaga ao amanhecer.",
+   "especificacoes": [
+    {
+     "k": "Função",
+     "v": "comando automático por luz"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-51.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "PRO-50",
+    "LED-9"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "DPS-EF",
+   "codigo": "DPS-EF",
+   "nome": "Descarregador de sobretensão",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Proteção da instalação contra sobretensões (raios e transientes), em quadro modular. Modelos a confirmar na cotação.",
+   "especificacoes": [
+    {
+     "k": "Montagem",
+     "v": "quadro modular"
+    }
+   ],
+   "marca": "EFAPEL",
+   "modelo": "",
+   "foto": "assets/fotos/foto-61.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "DIF-2P",
+    "QUA-12"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "DIF-4P",
+   "codigo": "DIF-4P",
+   "nome": "Disjuntor diferencial tetrapolar 40 A / 0,3 A",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Diferencial tetrapolar de alta sensibilidade para proteção de pessoas em instalações trifásicas.",
+   "especificacoes": [
+    {
+     "k": "Corrente nominal",
+     "v": "40 A"
+    },
+    {
+     "k": "Sensibilidade",
+     "v": "0,3 A"
+    },
+    {
+     "k": "Polos",
+     "v": "4P"
+    }
+   ],
+   "marca": "Hager",
+   "modelo": "CFC 440P",
+   "foto": "assets/fotos/foto-56.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "DIF-2P",
+    "DIS-32"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "DIS-2PE",
+   "codigo": "DIS-2PE",
+   "nome": "Disjuntor bipolar modular",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Disjuntor modular bipolar para proteção de circuitos contra sobrecargas e curto-circuitos.",
+   "especificacoes": [
+    {
+     "k": "Polos",
+     "v": "2P"
+    }
+   ],
+   "marca": "Schneider Electric",
+   "modelo": "Easy9",
+   "foto": "assets/fotos/foto-62.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "DIS-25",
+    "DIF-2P"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "QUA-2F",
+   "codigo": "QUA-2F",
+   "nome": "Quadro de distribuição embutido — 2 fileiras",
+   "categoria": "Proteção",
+   "unidade": "un",
+   "descricao": "Quadro de embutir com porta, para disjuntores e aparelhagem modular em duas fileiras.",
+   "especificacoes": [
+    {
+     "k": "Fileiras",
+     "v": "2"
+    },
+    {
+     "k": "Montagem",
+     "v": "embutido"
+    }
+   ],
+   "marca": "",
+   "modelo": "",
+   "foto": "assets/fotos/foto-53.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "QUA-12",
+    "DIF-2P"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "LED-FIL",
+   "codigo": "LED-FIL",
+   "nome": "Lâmpada LED de filamento globo E27",
+   "categoria": "Iluminação",
+   "unidade": "un",
+   "descricao": "Lâmpada LED de filamento com globo transparente, efeito decorativo vintage, casquilho E27.",
+   "especificacoes": [
+    {
+     "k": "Casquilho",
+     "v": "E27"
+    },
+    {
+     "k": "Tipo",
+     "v": "filamento LED"
+    }
+   ],
+   "marca": "Osram",
+   "modelo": "Vintage 1906",
+   "foto": "assets/fotos/foto-64.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "LED-9"
+   ],
+   "publicar": true,
+   "destaque": false
+  },
+  {
+   "id": "LFC-65",
+   "codigo": "LFC-65",
+   "nome": "Lâmpada fluorescente compacta espiral 6500 K",
+   "categoria": "Iluminação",
+   "unidade": "un",
+   "descricao": "Lâmpada de espiral com luz branca fria (6500 K), para bocais e iluminação geral.",
+   "especificacoes": [
+    {
+     "k": "Cor",
+     "v": "branca fria 6500 K"
+    },
+    {
+     "k": "Tipo",
+     "v": "fluorescente compacta"
+    }
+   ],
+   "marca": "Ledvance",
+   "modelo": "",
+   "foto": "assets/fotos/foto-54.jpg",
+   "fotos": [],
+   "preco": null,
+   "precoEstado": "consulta",
+   "disponibilidade": "consultar",
+   "garantia": "",
+   "aplicacoes": [],
+   "relacionados": [
+    "LED-9",
+    "LED-18"
+   ],
+   "publicar": true,
+   "destaque": false
   }
  ],
  "categorias": [
