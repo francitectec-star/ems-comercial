@@ -647,11 +647,13 @@ window.addEventListener('hashchange',render);
 /* ---------- arranque ---------- */
 (async function(){
   $('#ano').textContent=new Date().getFullYear();
-  let carregado=false,fonte='embutido';
-  try{const r=await fetch(EMS_API+'/api/public/catalog',{cache:'no-store',signal:AbortSignal.timeout(7000)});if(r.ok){const j=await r.json();if(j&&j.publicado&&j.catalogo&&j.catalogo.produtos&&j.catalogo.produtos.length){CAT=j.catalogo;carregado=true;fonte='servidor';}}}catch(e){}
-  if(!carregado)try{const r=await fetch('catalogo.json',{cache:'no-store'});if(r.ok){const j=await r.json();if(j&&j.produtos&&j.produtos.length){CAT=j;carregado=true;fonte='local';}}}catch(e){}
-  if(!carregado)CAT=CATALOGO_EMBUTIDO;
-  if(fonte==='servidor'){try{const an=$('#ano');const sp=document.createElement('span');sp.style.cssText='color:#5B6B7C;font-size:12px;margin-left:8px';sp.textContent='· catálogo sincronizado com o servidor central';if(an&&an.parentNode)an.parentNode.appendChild(sp);}catch(e){}}
+  const cand={};
+try{const r=await fetch(EMS_API+'/api/public/catalog',{cache:'no-store',signal:AbortSignal.timeout(7000)});if(r.ok){const j=await r.json();if(j&&j.publicado&&j.catalogo&&j.catalogo.produtos&&j.catalogo.produtos.length){cand.servidor=j.catalogo;}}}catch(e){}
+try{const r=await fetch('catalogo.json',{cache:'no-store'});if(r.ok){const j=await r.json();if(j&&j.produtos&&j.produtos.length){cand.local=j;}}}catch(e){}
+cand.embutido=CATALOGO_EMBUTIDO;
+const pont=c=>String(c&&c.atualizado||'')+'|'+String(((c&&c.galeria||[]).length)+((c&&c.produtos||[]).length)).padStart(8,'0');
+const ordem=['servidor','local','embutido'].filter(k=>cand[k]).sort((a,b)=>pont(cand[b]).localeCompare(pont(cand[a])));
+CAT=cand[ordem[0]];const fonte=ordem[0];   if(fonte==='servidor'){try{const an=$('#ano');const sp=document.createElement('span');sp.style.cssText='color:#5B6B7C;font-size:12px;margin-left:8px';sp.textContent='· catálogo sincronizado com o servidor central';if(an&&an.parentNode)an.parentNode.appendChild(sp);}catch(e){}}
   const waBase=waLink('Olá! Gostaria de falar com a Electro-Moz-Solar.');
   $('#fab-wa').href=waBase; $('#rod-wa').href=waBase;
   $('#burger').addEventListener('click',()=>{const ab=$('#nav').classList.toggle('aberta');$('#burger').setAttribute('aria-expanded',ab?'true':'false');});
